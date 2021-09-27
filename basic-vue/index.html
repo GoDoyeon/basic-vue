@@ -8,12 +8,30 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   </head>
   <body>
-    <div id="app">{{name}}</div>
+    <div id="app">{{nextYear('안녕하세요')}}</div>
     <script>
       new Vue({
         el: '#app',
         data: {
-          name: '고도연',
+          person: {
+            name: '고도연',
+            age: 25,
+          },
+        },
+        methods: {
+          nextYear(greeting) {
+            return (
+              greeting +
+              '! ' +
+              this.person.name +
+              '는 내년에 ' +
+              (this.person.age + 1) +
+              '살 입니다.'
+            );
+          },
+          otherMethod() {
+            this.nextYear();
+          },
         },
       });
     </script>
