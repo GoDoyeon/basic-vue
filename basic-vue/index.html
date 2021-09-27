@@ -8,7 +8,11 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   </head>
   <body>
-    <div id="app">{{nextYear('안녕하세요')}}</div>
+    <div id="app">
+      {{nextYear('안녕하세요')}}
+      <input :type="type" :value="inputData" />
+      <a :href="getGuideLink('kossiecoder')">코지 코더 채널</a>
+    </div>
     <script>
       new Vue({
         el: '#app',
@@ -17,8 +21,14 @@
             name: '고도연',
             age: 25,
           },
+          inputData: 'hello22',
+          type: 'text',
+          link: 'https://www.youtube.com/',
         },
         methods: {
+          getGuideLink(channel) {
+            return this.link + channel;
+          },
           nextYear(greeting) {
             return (
               greeting +
