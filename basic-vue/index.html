@@ -10,7 +10,9 @@
   <body>
     <div id="app">
       <form v-on:submit.prevent="submit">
-        <input type="text" /><br />
+        <input type="text" v-model="text" /><br />
+        <!-- <input type="text" :value="text" @keyup="updateText" /><br /> -->
+        {{text}}
         <button type="submit">Submit</button>
       </form>
     </div>
@@ -19,6 +21,7 @@
         el: '#app',
         data: {
           year: 2021,
+          text: 'text',
         },
         methods: {
           plus() {
@@ -31,6 +34,10 @@
             alert('submitted');
             console.log('hello');
           },
+          // updateText(event) {
+          //   this.text = event.target.value;
+          //   console.log(event);
+          // },
         },
       });
     </script>
