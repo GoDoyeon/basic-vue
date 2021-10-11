@@ -1,0 +1,57 @@
+<!-- # 컴포넌트 스타일 스코프 
+응용 프로그램의 경우 취상위 App 구성 요소와 레이아웃 구성 요소의 스타일은 전역일 수 있지만 다른 모든 구성 요소는 항상 범위가 지정되어야 합니다. -->
+
+<!-- # Good Code 1 (scoped attribute) -->
+<template>
+  <button class="button button-close">X</button>
+</template>
+
+<!-- Using the 'scoped' attribute -->
+<style scoped>
+  .button {
+    border: none;
+    border-radius: 2px;
+  }
+  .button-close {
+    background-color: red;
+  }
+</style>
+
+<!-- # Good Code 2 (CSS modules) -->
+<template>
+  <button :class="[$style.button, $style.buttonClose]">X</button>
+</template>
+
+<!-- Using CSS modules -->
+<style module>
+  .button {
+    border: none;
+    border-radius: 2px;
+  }
+  .buttonClose {
+    background-color: red;
+  }
+</style>
+
+<!-- # Good Code 3 (BEM convention) -->
+<template>
+  <button class="c-Button c-Button--close">X</button>
+</template>
+<!-- Using the BEM convention -->
+<style>
+  .c-Button {
+    border: none;
+    border-radius: 2px;
+  }
+  .c-Button--close {
+    background-color: red;
+  }
+</style>
+
+<!-- # Bad Code -->
+<template> <button class="btn btn-close">X</button> </template>
+<style>
+  .btn-close {
+    background-color: red;
+  }
+</style>
