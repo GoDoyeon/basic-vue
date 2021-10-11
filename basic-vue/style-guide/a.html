@@ -1,0 +1,22 @@
+<!-- v-if 와 v-for를 동시에 사용하지 마세요. -->
+
+<!-- # Good Code -->
+<ul>
+  <li v-for="user in activeUsers" :key="user.id">{{user.name}}</li>
+</ul>
+
+<ul v-if="shouldShowUsers">
+  <li v-for="user in users" :key="user.id">{{user.name}}</li>
+</ul>
+
+<!-- # Bad Code -->
+<ul>
+  <li v-for="user in users" v-if="user.isActive" :key="user.id">
+    {{ user.name }}
+  </li>
+</ul>
+<ul>
+  <li v-for="user in users" v-if="shouldShowUsers" :key="user.id">
+    {{ user.name }}
+  </li>
+</ul>
